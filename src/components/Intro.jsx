@@ -11,7 +11,7 @@ export default function Intro() {
 
   return <section className="intro page-width" id="inicio" aria-labelledby="intro-title" ref={root}>
     <div className="intro-copy">
-      <p className="intro-greeting">Hola, soy Meli<span aria-hidden="true"> ✳</span></p>
+      <p className="intro-greeting">Hola, soy Meli<span aria-hidden="true"><Icon name="asterisk" /></span></p>
       <h1 id="intro-title">Melina<br />Gigena<span className="name-dot">.</span></h1>
       <SpecialtyRotation />
       <p className="intro-description">{profile.introduction}</p>
@@ -23,7 +23,7 @@ export default function Intro() {
     </div>
     <div className="portrait-composition">
       <div className="portrait-orbit" aria-hidden="true" />
-      <span className="portrait-spark" aria-hidden="true">✳</span>
+      <span className="portrait-spark" aria-hidden="true"><Icon name="asterisk" /></span>
       <figure className="portrait-frame">
         <img src={portrait} alt="Melina Gigena" width="800" height="1067" fetchPriority="high" />
         <figcaption><Icon name="pin" /> {profile.location}</figcaption>

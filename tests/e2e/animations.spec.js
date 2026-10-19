@@ -12,6 +12,24 @@ async function activeSpecialty(page) {
   }).map((label) => label.textContent).join(''));
 }
 
+test('decorative stars use transparent SVGs instead of platform emoji glyphs', async ({ page }) => {
+  await open(page);
+  const greeting = page.locator('.intro-greeting > span');
+  const portrait = page.locator('.portrait-spark');
+  for (const star of [greeting, portrait]) {
+    await expect(star).toHaveText('');
+    await expect(star.locator('svg')).toHaveCount(1);
+    await expect(star.locator('svg')).toHaveAttribute('aria-hidden', 'true');
+    await expect(star.locator('svg')).toHaveAttribute('fill', 'none');
+    await expect(star.locator('svg')).toHaveCSS('stroke', 'rgb(0, 0, 0)');
+    await expect(star).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    expect((await star.boundingBox()).width).toBeGreaterThan(0);
+  }
+  expect(await greeting.locator('svg').innerHTML()).toBe(await portrait.locator('svg').innerHTML());
+  await expect(page.locator('body')).not.toContainText(/[✳✴✱★☆]/u);
+  await expect(page.locator('.contact-spark')).toHaveJSProperty('tagName', 'svg');
+});
+
 test('specialties rotate in order, stay centered and have no pause control or layout shift', async ({ page }) => {
   await open(page);
   await expect(page.locator('.intro-role button')).toHaveCount(0);

@@ -8,6 +8,8 @@ const paths = {
   database: <><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v7c0 4 16 4 16 0V5M4 12v7c0 4 16 4 16 0v-7" /></>,
   chart: <><path d="M4 3v17h17M8 16v-5m5 5V6m5 10V9" /></>,
   branch: <><circle cx="6" cy="5" r="3" /><circle cx="6" cy="19" r="3" /><circle cx="18" cy="5" r="3" /><path d="M6 8v8m12-8c0 6-12 0-12 8" /></>,
+  // Preserve the eight-ray desktop glyph outline without relying on system fonts.
+  asterisk: <path d="M938 1108 952 1776H866L879 1108 416 1589 354 1528 836 1065 168 1077V991L836 1006 354 541 416 479 879 963 866 293H952L938 963 1403 479 1464 541 981 1006 1651 991V1077L981 1065 1464 1528 1403 1589Z" fill="currentColor" stroke="none" />,
   spark: <><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z" /></>,
   pin: <><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" /><circle cx="12" cy="10" r="2.5" /></>,
   mail: <><rect x="2" y="4" width="20" height="16" rx="3" /><path d="m3 6 9 7 9-7" /></>,
@@ -17,5 +19,5 @@ const paths = {
 };
 
 export default function Icon({ name, className = '' }) {
-  return <svg className={`icon ${className}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name] || paths.spark}</svg>;
+  return <svg className={`icon ${className}`} viewBox={name === 'asterisk' ? '0 0 1819 2048' : '0 0 24 24'} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name] || paths.spark}</svg>;
 }
