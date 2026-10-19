@@ -7,8 +7,7 @@ export default function useContactAnimation(root) {
       gsap.timeline({
         defaults: { duration: 0.75, ease: 'power3.out' },
         scrollTrigger: { trigger: root.current, start: 'top 86%', once: true },
-      }).from('.contact-content > .section-kicker', { x: -24, opacity: 0 })
-        .from('.contact-heading', { y: 36, opacity: 0 }, '-=0.5')
+      }).from('.contact-heading', { y: 36, opacity: 0 })
         .from('.contact-email', { x: -30, opacity: 0 }, '-=0.45')
         .from('.contact-bottom > *, .site-footer > *', { y: 16, opacity: 0, stagger: 0.09, duration: 0.55 }, '-=0.4');
 

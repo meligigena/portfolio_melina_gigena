@@ -46,7 +46,7 @@ export default function ProjectGallery({ items = projects }) {
 
   return <section className="gallery" id="proyectos" ref={root} aria-labelledby="projects-title" aria-roledescription="galería de proyectos">
     <div className="gallery-heading page-width">
-      <div><p className="section-kicker">Proyectos seleccionados</p><h2 id="projects-title">De la idea a la web<span>.</span></h2></div>
+      <div><p className="section-kicker">Proyectos seleccionados</p><h2 id="projects-title">De la idea a la solución<span>.</span></h2></div>
       <div className="project-filters" role="group" aria-label="Filtrar proyectos">
         {projectCategories.map((item) => <button key={item.id} type="button" aria-pressed={category === item.id} aria-controls="project-results" onClick={() => filter(item.id)}>{item.label}</button>)}
       </div>

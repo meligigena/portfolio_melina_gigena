@@ -15,7 +15,7 @@
 .specialty-stack { display: grid; place-items: center; overflow: hidden; min-width: 0; }
 .specialty-text { grid-area: 1 / 1; white-space: nowrap; visibility: hidden; }
 .specialty-text:first-child { visibility: visible; }
-.intro-description { max-width: 470px; margin-top: 20px; font-size: 18px; line-height: 1.65; color: #474447; }
+.intro-description { max-width: 520px; margin-top: 20px; font-size: 18px; line-height: 1.65; color: #474447; text-wrap: pretty; }
 .intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 23px; margin-top: 29px; }
 .portrait-composition { position: relative; align-self: center; padding: 25px 36px 52px; isolation: isolate; }
 .portrait-orbit { position: absolute; inset: 3px 8px 32px; background: var(--pink); border-radius: 48% 48% 27% 27%; transform: rotate(8deg); z-index: -1; }
@@ -322,7 +322,6 @@
   .certificate-download { font-size: 10px; gap: 5px; }
   .certificate-download .icon { width: 13px; height: 13px; }
   .contact { padding-top: 50px; }
-  .contact .section-kicker { font-size: 11px; }
   .contact-heading h2 { font-size: clamp(55px, 14.7vw, 80px); letter-spacing: -2.9px; }
   .contact-heading > .icon { width: 59px; height: 59px; margin: 0; stroke-width: .8; }
   .contact-email { font-size: 18px; letter-spacing: -.3px; gap: 15px; margin-top: 26px; }

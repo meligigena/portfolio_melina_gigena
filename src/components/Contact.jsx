@@ -8,8 +8,7 @@ export default function Contact() {
   useContactAnimation(root);
   return <section className="contact" id="contacto" aria-labelledby="contact-title" ref={root}>
     <div className="contact-content page-width">
-      <p className="section-kicker">El próximo paso puede empezar acá</p>
-      <div className="contact-heading"><h2 id="contact-title">¿Creamos<br />algo juntos?</h2><Icon name="spark" className="contact-spark" /></div>
+      <div className="contact-heading"><h2 id="contact-title">Contacto.</h2><Icon name="spark" className="contact-spark" /></div>
       <a className="contact-email" href={profile.links.email} target="_blank" rel="noopener noreferrer" aria-label="Escribir a melinag1510@gmail.com en Gmail (nueva pestaña)">melinag1510@gmail.com <Icon name="diagonal" /></a>
       <div className="contact-bottom">
         <p><Icon name="pin" />{profile.location}</p>

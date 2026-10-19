@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Melina Gigena',
   location: 'Córdoba, Argentina',
-  introduction: 'Estudio Ingeniería en Sistemas de Información y combino desarrollo de software y análisis de datos para crear soluciones con atención al detalle.',
+  introduction: 'Estudiante de 4.º año de Ingeniería en Sistemas de Información en UTN Córdoba. Me interesa desarrollarme profesionalmente en software, análisis de datos y tecnología, combinando programación, pensamiento analítico y resolución de problemas.',
   links: {
     github: 'https://github.com/meligigena',
     linkedin: 'https://www.linkedin.com/in/melina-gigena-560828338/',
@@ -10,15 +10,15 @@ export const profile = {
 };
 
 export const skillAreas = [
-  { icon: 'chart', title: 'Análisis de datos y BI', preview: 'Power BI, Python y visualización de información', skills: ['Python', 'Power BI', 'Power Query', 'ETL', 'Modelado de datos', 'DAX', 'Excel intermedio', 'Visualización de información'] },
-  { icon: 'database', title: 'Bases de datos', preview: 'SQL e información bien estructurada', skills: ['SQL', 'SQL Server', 'SQLite', 'Supabase', 'Modelado relacional'] },
-  { icon: 'code', title: 'Interfaces web', preview: 'React, JavaScript, HTML y CSS', skills: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Vite', 'Diseño responsive'] },
-  { icon: 'layers', title: 'Software y backend', preview: 'Lógica, APIs y buenas prácticas', skills: ['Node.js', 'Express.js', 'C#', 'Java', 'Python', 'APIs REST', 'CRUD', 'POO', 'SOLID', 'Arquitectura en capas'] },
-  { icon: 'branch', title: 'Herramientas', preview: 'Versionado, pruebas y despliegue', skills: ['Git', 'GitHub', 'Vercel', 'Playwright'] },
-  { icon: 'spark', title: 'Desarrollo asistido por IA', preview: 'Herramientas con intención', skills: ['OpenAI Codex', 'Prompting', 'Agentes', 'MCP', 'Skills'] },
+  { icon: 'chart', title: 'Análisis de datos y BI', preview: 'Power BI, Power Query, ETL y DAX', skills: ['Power BI', 'Power Query', 'ETL', 'Modelado de datos', 'DAX', 'Excel intermedio', 'Visualización de información'] },
+  { icon: 'database', title: 'Bases de datos', preview: 'SQL, SQL Server, SQLite y Supabase', skills: ['SQL', 'SQL Server', 'SQLite', 'Supabase', 'Modelado relacional'] },
+  { icon: 'code', title: 'Interfaces web', preview: 'React, JavaScript, HTML, CSS y Vite', skills: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Vite', 'Diseño responsive'] },
+  { icon: 'layers', title: 'Software y backend', preview: 'C#, Java, Python, Node.js y APIs REST', skills: ['C#', 'Java', 'Python', 'Node.js', 'Express.js', 'APIs REST', 'CRUD', 'POO', 'SOLID', 'Arquitectura en capas'] },
+  { icon: 'branch', title: 'Herramientas', preview: 'Git, GitHub, Playwright y Vercel', skills: ['Git', 'GitHub', 'Playwright', 'Vercel'] },
+  { icon: 'spark', title: 'Desarrollo asistido por IA', preview: 'Codex, agentes, MCP y automatización', skills: ['OpenAI Codex', 'Prompting', 'Agentes', 'MCP', 'Automatización de flujos de trabajo', 'Skills'] },
 ];
 
 export const experience = [
-  { company: 'Estudio Contable Adansia', role: 'Auxiliar administrativo contable', period: 'Mar. 2020 — Dic. 2025', description: 'Organización y validación de documentación, control de información con Excel y cumplimiento de plazos.' },
-  { company: 'Estética GLOWSIDE', role: 'Secretaría y recepción', period: 'Dic. 2024 — Mar. 2025', description: 'Gestión de agenda, atención al cliente y coordinación de información con el equipo.' },
+  { company: 'Estudio Contable Adansia', role: 'Auxiliar administrativo contable', period: 'Mar. 2020 — Dic. 2025', description: 'Organización y validación de documentación, control y análisis de información con Excel. Manejo responsable de información, cumplimiento de plazos y coordinación de tareas.' },
+  { company: 'Estética GLOWSIDE', role: 'Secretaría y recepción', period: 'Dic. 2024 — Mar. 2025', description: 'Organización de agendas y turnos, gestión de información y atención al cliente. Coordinación con el equipo y soporte administrativo.' },
 ];

@@ -34,10 +34,38 @@ test('public content, links and local resources', async ({ page }) => {
   page.on('console', (message) => { if (message.type() === 'error') errors.push(message.text()); });
   page.on('response', (response) => { if (response.url().startsWith('http://127.0.0.1') && response.status() >= 400) missing.push(response.url()); });
   await ready(page);
+  await expect(page).toHaveTitle('Melina Gigena');
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', 'Melina Gigena');
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', '/favicon.svg');
+  await expect(page.locator('.intro-description')).toHaveText('Estudiante de 4.º año de Ingeniería en Sistemas de Información en UTN Córdoba. Me interesa desarrollarme profesionalmente en software, análisis de datos y tecnología, combinando programación, pensamiento analítico y resolución de problemas.');
+  await expect(page.locator('.profile-description')).toHaveText('Me interesa desarrollarme en software, sistemas y análisis de datos. Tengo experiencia práctica en proyectos web con React, JavaScript y Supabase, y en aplicaciones académicas con C# y SQL Server. Complemento estos conocimientos con herramientas de análisis como SQL, Excel y Power BI.');
+  await expect(page.locator('.academic-strip')).toContainText('4.º año · UTN Córdoba');
+  await expect(page.locator('.academic-strip')).toContainText('9,0 · Desde 2023');
+  await expect(page.locator('.academic-strip')).toContainText('B2 · Cambridge First Certificate');
+  await expect(page.locator('.current-study')).toContainText('Power BI Desktop · Udemy En curso');
+  await expect(page.locator('.skill-area').first()).toHaveAttribute('open', '');
+  await expect(page.locator('.skill-preview')).toHaveText([
+    'Power BI, Power Query, ETL y DAX',
+    'SQL, SQL Server, SQLite y Supabase',
+    'React, JavaScript, HTML, CSS y Vite',
+    'C#, Java, Python, Node.js y APIs REST',
+    'Git, GitHub, Playwright y Vercel',
+    'Codex, agentes, MCP y automatización',
+  ]);
+  await expect(page.locator('.experience-heading h3')).toHaveText('Experiencia laboral.');
+  await expect(page.locator('.experience-heading p')).toHaveText('Organización, análisis de información y resolución de problemas en entornos reales.');
+  await expect(page.locator('.experience-item')).toHaveCount(2);
+  await expect(page.locator('.experience-item h4')).toHaveText(['Estudio Contable Adansia', 'Estética GLOWSIDE']);
+  await expect(page.locator('.experience-role')).toHaveText(['Auxiliar administrativo contable', 'Secretaría y recepción']);
+  await expect(page.locator('.experience-period')).toHaveText(['Mar. 2020 — Dic. 2025', 'Dic. 2024 — Mar. 2025']);
+  await expect(page.locator('#projects-title')).toHaveText('De la idea a la solución.');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('MelinaGigena.');
   await expect(page.locator('.project-card')).toHaveCount(2);
   await expect(page.locator('.project-link')).toHaveAttribute('href', 'https://solfanara.com');
   await expect(page.locator('.project-link')).toHaveAttribute('target', '_blank');
+  await expect(page.locator('[data-project="sol-fanara"] .project-contribution')).toContainText('Supabase Database, Auth y Storage, operaciones CRUD y políticas RLS');
+  await expect(page.locator('[data-project="sol-fanara"] .project-contribution')).toContainText('Despliegue en Vercel');
+  await expect(page.locator('[data-project="sol-fanara"] .project-technologies li')).toHaveText(['React', 'Vite', 'JavaScript', 'GSAP/ScrollTrigger', 'Supabase', 'Vercel']);
   await expect(page.locator('[data-project="invitacion"]')).toContainText('Próximamente');
   await expect(page.locator('[data-project="invitacion"] a')).toHaveCount(0);
   await expect(page.locator('.gallery-heading > p')).toHaveCount(0);
@@ -65,7 +93,10 @@ test('public content, links and local resources', async ({ page }) => {
   });
   expect(portraitCollision).toBe(false);
   await page.locator('#contacto').scrollIntoViewIfNeeded();
-  await expect(page.getByRole('heading', { name: '¿Creamos algo juntos?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Contacto.', exact: true })).toBeVisible();
+  await expect(page.locator('.contact-content > .section-kicker')).toHaveCount(0);
+  await expect(page.getByText('El próximo paso puede empezar acá', { exact: true })).toHaveCount(0);
+  await expect(page.locator('.contact-spark')).toBeVisible();
   await expect.poll(() => overflow(page)).toBeLessThanOrEqual(1);
   expect(errors).toEqual([]);
   expect(missing).toEqual([]);
