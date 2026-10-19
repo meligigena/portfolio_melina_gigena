@@ -1,0 +1,21 @@
+@font-face { font-family: 'Instrument Sans'; src: url('/fonts/instrument-sans-latin.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Syne'; src: url('/fonts/syne-latin.woff2') format('woff2'); font-weight: 400 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Pinyon Script'; src: url('/fonts/pinyon-script-latin.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('/fonts/manrope-latin.woff2') format('woff2'); font-weight: 600 700; font-style: normal; font-display: swap; }
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --muted: #626062;
+  --pink: #f9d6e4;
+  --pink-soft: #fff3f7;
+  --pink-deep: #a82152;
+  --pink-header: #e9a4bf;
+  --line: #e9e4e6;
+  --font-body: 'Instrument Sans', Arial, sans-serif;
+  --font-display: 'Syne', Arial, sans-serif;
+  --font-script: 'Pinyon Script', 'Brush Script MT', cursive;
+  --font-logo: 'Manrope', Arial, sans-serif;
+  --page-width: 1248px;
+  --page-gutter: clamp(24px, 5vw, 80px);
+}
