@@ -89,8 +89,8 @@ test('short desktop and narrow mobile viewports keep the header and cards within
         }
         expect(cards[0].right).toBeLessThan(cards[1].left);
       }
-      const titleOverflow = await page.locator('.invitation-concept > span:first-child').evaluate((element) => element.scrollWidth - element.closest('.project-cover').clientWidth);
-      expect(titleOverflow, 'The invitation cover title must fit its column').toBeLessThanOrEqual(0);
+      const coverOverflow = await page.locator('[data-project="invitacion"] .project-cover img').evaluate((element) => element.scrollWidth - element.closest('.project-cover').clientWidth);
+      expect(coverOverflow, 'The real invitation cover must fit its column').toBeLessThanOrEqual(0);
     }
     await snapshot(page, size.width + 'x' + size.height, testInfo.project.name);
   }

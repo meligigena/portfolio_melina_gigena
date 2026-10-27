@@ -1,4 +1,5 @@
 import solCover from '../assets/sol-fanara.webp';
+import { invitation } from './invitationCaseStudy';
 
 export const projectCategories = [
   { id: 'all', label: 'Todos' },
@@ -23,11 +24,19 @@ export const projects = [
   {
     id: 'invitacion',
     categories: ['software'],
-    title: 'Invitación digital de 15 años',
+    title: invitation.title,
     category: 'Invitación digital',
-    status: 'Próximamente',
-    description: 'Una invitación web interactiva para una celebración de 15 años.',
-    note: 'Un nuevo proyecto está tomando forma.',
-    technologies: [],
+    status: 'Demo disponible',
+    description: invitation.description,
+    technologies: invitation.technologies,
+    url: invitation.demoURL,
+    linkLabel: 'Ver demo',
+    detailURL: invitation.detailPath,
+    cover: invitation.cover,
+    coverAlt: 'Captura real de la demo de XV Mía Jazmín: sobre plateado y esferas de disco sobre fondo negro.',
+    coverLabel: 'Demo interactiva',
+    coverClass: 'invitation-demo-cover',
+    coverWidth: 1440,
+    coverHeight: 900,
   },
 ];

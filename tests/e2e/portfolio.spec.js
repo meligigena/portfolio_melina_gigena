@@ -61,13 +61,14 @@ test('public content, links and local resources', async ({ page }) => {
   await expect(page.locator('#projects-title')).toHaveText('De la idea a la solución.');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('MelinaGigena.');
   await expect(page.locator('.project-card')).toHaveCount(2);
-  await expect(page.locator('.project-link')).toHaveAttribute('href', 'https://solfanara.com');
-  await expect(page.locator('.project-link')).toHaveAttribute('target', '_blank');
+  await expect(page.locator('[data-project="sol-fanara"] .project-link')).toHaveAttribute('href', 'https://solfanara.com');
+  await expect(page.locator('[data-project="sol-fanara"] .project-link')).toHaveAttribute('target', '_blank');
   await expect(page.locator('[data-project="sol-fanara"] .project-contribution')).toContainText('Supabase Database, Auth y Storage, operaciones CRUD y políticas RLS');
   await expect(page.locator('[data-project="sol-fanara"] .project-contribution')).toContainText('Despliegue en Vercel');
   await expect(page.locator('[data-project="sol-fanara"] .project-technologies li')).toHaveText(['React', 'Vite', 'JavaScript', 'GSAP/ScrollTrigger', 'Supabase', 'Vercel']);
-  await expect(page.locator('[data-project="invitacion"]')).toContainText('Próximamente');
-  await expect(page.locator('[data-project="invitacion"] a')).toHaveCount(0);
+  await expect(page.locator('[data-project="invitacion"]')).toContainText('Demo disponible');
+  await expect(page.locator('[data-project="invitacion"] a')).toHaveCount(2);
+  await expect(page.locator('[data-project="invitacion"] .project-technologies li')).toHaveText(['HTML', 'CSS', 'JavaScript', 'Vercel', 'Google Apps Script', 'Google Sheets', 'Google Slides']);
   await expect(page.locator('.gallery-heading > p')).toHaveCount(0);
   await expect(page.locator('.section-heading > p')).toHaveCount(0);
   await expect(page.locator('.portrait-note')).toHaveText('Curiosidad para aprender, tecnología para crear.');

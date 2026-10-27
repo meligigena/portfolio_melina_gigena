@@ -1,0 +1,23 @@
+CAPTURAS INVITACIÓN XV MÍA JAZMÍN — EJEMPLOS DE PRUEBA INTACTOS
+
+Cinco capturas preparadas desde las imágenes originales compartidas en ChatGPT.
+No se modificaron, anonimizaron ni sustituyeron los nombres, mensajes,
+canciones, fechas, importes ni valores que aparecen en las capturas.
+Son datos de prueba ficticios generados para la demostración.
+
+ÚNICO CAMBIO: recorte rectangular de los encabezados superiores de Google,
+para excluir el título de documento «PRUEBA panel avanzado» y el avatar
+visible en la esquina superior. No se pintó ni tapó ninguna región interna.
+
+01_confirmaciones.png         Registro de invitados y confirmaciones.
+02_estadisticas.png           Estadísticas y estados de pago.
+03_seleccion_mensajes.png     Lista de mensajes seleccionables.
+04_generar_presentacion.png  Menú de generación desde Sheets.
+05_presentacion_slides.png   Resultado de diapositivas en Google Slides.
+
+Sugerencia de pie en el portfolio:
+«Capturas de una demostración con datos ficticios.»
+
+Copiar los cinco PNG a src/assets/projects/invitation/ y pedir a Codex
+que los integre en la página existente /proyectos/invitacion-xv.
+No sustituir contenido de los registros y no volver a anonimizar.
