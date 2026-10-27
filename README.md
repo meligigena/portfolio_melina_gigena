@@ -80,7 +80,7 @@ Los CV y las skills se conservan como fuentes de solo lectura. Los CV no se copi
 
 ### Caso de estudio de XV Mía Jazmín
 
-La ruta `/proyectos/invitacion-xv` (también con barra final) carga la página de detalle mediante un import diferido. El recorrido principal sigue en `/`. Para esta única ruta se usa `window.location.pathname`, sin incorporar una dependencia de routing. `vercel.json` reescribe exclusivamente ambas variantes hacia `index.html`, manteniendo el acceso directo y la recarga una vez que exista un despliegue autorizado. La configuración local de Vite permite probar la ruta, pero no sustituye la verificación futura en Vercel.
+La ruta `/proyectos/invitacion-xv` (también con barra final) carga la página de detalle mediante un import diferido. El recorrido principal sigue en `/`. Para esta única ruta se usa `window.location.pathname`, sin incorporar una dependencia de routing. `vercel.json` reescribe exclusivamente ambas variantes hacia `index.html`. El acceso directo y la recarga se verificaron tanto en Vite como en el dominio público de producción de Vercel.
 
 La tarjeta distingue “Demo disponible” de un proyecto publicado y abre tanto la demo como el detalle en otras pestañas. El encabezado reutiliza el componente existente con enlaces de regreso al portfolio. Las explicaciones cubren el diseño, el formulario, la administración en Sheets y la generación de Slides; el diagrama interactivo muestra el flujo de herramientas con GSAP, selección por teclado y soporte para movimiento reducido. La animación se ejecuta una vez y puede repetirse; no tiene pinning. Las imágenes se amplían en un diálogo nativo con Escape y restitución del foco.
 
@@ -102,7 +102,7 @@ Verificación del 27 de octubre de 2026: `npm run build`, `npm run lint` y las s
 
 Los certificados se visualizan y descargan desde archivos locales incluidos en el build. Agregar o cambiar certificados requiere actualizar sus datos y volver a generar el build. Supabase, autenticación, subida desde la web y panel privado quedan para una iteración posterior.
 
-La configuración está preparada para Vercel con Node 24.x y salida `dist`. No se realizó ningún despliegue. El contacto abre la redacción de Gmail en una pestaña nueva con el destinatario precargado; también ofrece GitHub y LinkedIn, sin formulario ni backend.
+La configuración utiliza Vercel con Node 24.x y salida `dist`. El contacto abre la redacción de Gmail en una pestaña nueva con el destinatario precargado; también ofrece GitHub y LinkedIn, sin formulario ni backend.
 
 ### Publicación en el portfolio existente
 
@@ -111,3 +111,7 @@ El repositorio es `meligigena/portfolio_melina_gigena`, con rama principal `main
 Antes de publicar se ejecutan build, lint, las pruebas unitarias de geometría y la suite completa de Playwright. Tras la publicación, `npm run test:e2e -- --config=playwright.production.config.js` verifica el dominio público en desktop y mobile: ruta directa y recarga del caso de estudio, navegación, galería, certificados, imágenes originales, secuencia de tres pasos, gestión de invitados, visor y movimiento reducido. Esta configuración no inicia servidores locales. Las pruebas de enlaces externos usan respuestas simuladas y no envían formularios ni modifican las herramientas de Google.
 
 Validación previa a esta publicación (27 de octubre de 2026): build y lint correctos, 6 pruebas unitarias aprobadas y suite completa de Playwright con 87 casos aprobados y 12 omitidos por tamaño de pantalla, sin fallos (6,5 minutos). Se ejecutó con `npm run test:e2e -- --workers=1 --timeout=90000` sobre el build definitivo.
+
+Vercel incluye `Content-Disposition` con el nombre del archivo PDF en sus respuestas. La prueba de certificados comprueba tanto el atributo HTML `download` como el nombre efectivo indicado por ese encabezado, además del contenido PDF y la finalización de la descarga. No se cambió la sección ni sus documentos.
+
+Verificación pública del 27 de octubre de 2026: 38 pruebas aprobadas y 4 omitidas por ser exclusivas de desktop, sin fallos, con `npm run test:e2e -- --config=playwright.production.config.js --workers=2` (2,7 minutos). La prueba de descargas corregida también aprobó sus tres tamaños locales. Las rutas `/`, `/proyectos/invitacion-xv` y `/proyectos/invitacion-xv/` respondieron HTTP 200 sin autenticación; los 15 archivos JS, CSS y PNG del despliegue coincidieron por SHA-256 con el build validado. El reporte de comparación se conserva en `output/playwright/production-release.json`. Las capturas públicas de revisión están en `output/playwright/production-*.png`. La publicación se realizó únicamente en el portfolio de Melina Gigena, mediante la integración existente de GitHub con Vercel.

@@ -16,9 +16,15 @@ test('all four original PDFs can be opened and downloaded', async ({ page, reque
     expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-');
     await expect(certificate.getByRole('link', { name: /Descargar/ })).toHaveAttribute('href', href);
   }
+  const downloadLink = page.getByRole('link', { name: 'Descargar Curso Completo de Codex', exact: true });
+  await expect(downloadLink).toHaveAttribute('download', 'Melina-Gigena-Codex.pdf');
+  const downloadResponse = await request.get(await downloadLink.getAttribute('href'));
+  // A filename supplied by the HTTP response takes precedence over the HTML hint.
+  const responseFilename = downloadResponse.headers()['content-disposition']?.match(/filename="([^"]+)"/)?.[1];
+  const expectedFilename = responseFilename || await downloadLink.getAttribute('download');
   const downloadEvent = page.waitForEvent('download');
-  await page.getByRole('link', { name: 'Descargar Curso Completo de Codex', exact: true }).click();
+  await downloadLink.click();
   const download = await downloadEvent;
-  expect(download.suggestedFilename()).toBe('Melina-Gigena-Codex.pdf');
+  expect(download.suggestedFilename()).toBe(expectedFilename);
   expect(await download.failure()).toBeNull();
 });
